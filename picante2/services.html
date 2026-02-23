@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - CAFE PICANTE</title>
+    <link rel="icon" type="x-icon" href="./imgs2/jl.jpg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌶️ CAFE PICANTE</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="#" class="chat-btn" id="chatBtn">Chat with CEO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p class="subtitle">Choose the way that works best for you</p>
+
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🍽️</div>
+                    <h3>Dine-In</h3>
+                    <p>Enjoy our cozy atmosphere with comfortable seating and full table service.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛍️</div>
+                    <h3>Takeout</h3>
+                    <p>Quick and convenient takeout service. Order ahead and pick up ready to go.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Delivery</h3>
+                    <p>Have your favorite meals delivered right to your doorstep.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Catering</h3>
+                    <p>Perfect for events and gatherings. Custom menus available for groups.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Corporate Events</h3>
+                    <p>Host your meetings and events in our private event space.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Subscription Box</h3>
+                    <p>Monthly coffee subscription with specialty beans and exclusive blends.</p>
+                </div>
+            </div>
+
+            <!-- Reservation Form -->
+            <div class="reservation-form-section">
+                <h2>Reserve Your Table</h2>
+                <form class="reservation-form" onsubmit="handleReservation(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" placeholder="Number of Guests" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" required>
+                        </div>
+                    </div>
+                    <textarea placeholder="Special Requests" rows="4"></textarea>
+                    <button type="submit" class="submit-btn">Reserve Table</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>CEO Chat</h3>
+                <button class="close-btn" onclick="closeChatModal()">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CAFE PICANTE. All rights reserved.</p>
+            <p>📧 info@cafepicante.com | 📱 +1 (555) 123-4567</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

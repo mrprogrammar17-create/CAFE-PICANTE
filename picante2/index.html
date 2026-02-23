@@ -1,0 +1,88 @@
+l<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFE PICANTE - Premium Coffee & Dining</title>
+    <link rel="icon" type="x-icon" href="./imgs2/jl.jpg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌶️ CAFE PICANTE</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#" class="chat-btn" id="chatBtn">Chat with CEO</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to CAFE PICANTE</h1>
+            <p>Where spicy flavors meet premium coffee</p>
+            <button class="cta-btn" onclick="window.location.href='menu.html'">Explore Menu</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">☕</div>
+                    <h3>Premium Coffee</h3>
+                    <p>Freshly roasted beans from around the world, expertly brewed for perfect taste</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🌶️</div>
+                    <h3>Spicy Food</h3>
+                    <p>Authentic recipes with bold flavors and the perfect kick of heat</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🏠</div>
+                    <h3>Cozy Ambiance</h3>
+                    <p>Comfortable seating and warm atmosphere perfect for meetings or relaxation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>CEO Chat</h3>
+                <button class="close-btn" onclick="closeChatModal()">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CAFE PICANTE. All rights reserved.</p>
+            <p>📧 info@cafepicante.com | 📱 +1 (555) 123-4567</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

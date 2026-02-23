@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - CAFE PICANTE</title>
+    <link rel="icon" type="x-icon" href="./imgs2/jl.jpg">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🌶️ CAFE PICANTE</div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#" class="chat-btn" id="chatBtn">Chat with CEO</a></li>
+                <li><a href="#" class="cart-link" id="cartToggle">🛒 Cart (<span id="cartCount">0</span>)</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">Rs0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax (10%):</span>
+                <span id="tax">Rs0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="total">Rs0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn" onclick="gotoCheckout()" style="display: none;">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Menu Section -->
+    <section class="menu-section">
+        <div class="container">
+            <h1>Our Menu</h1>
+            <p class="subtitle">Discover our delicious offerings</p>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search menu items..." onkeyup="searchMenuItems()">
+                <button class="search-btn" onclick="searchMenuItems()">🔍 Search</button>
+            </div>
+
+            <!-- Hot Beverages -->
+            <div class="menu-category">
+                <h2>☕ Hot Beverages</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="./imgs2/espresso.jpg" alt="Espresso" class="item-image">
+                        <div class="item-info">
+                            <h4>Espresso</h4>
+                            <p>Rich and bold single shot of premium espresso</p>
+                            <span class="price">Rs290</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Espresso', 290)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&h=400&fit=crop" alt="Cappuccino" class="item-image">
+                        <div class="item-info">
+                            <h4>Cappuccino</h4>
+                            <p>Espresso with steamed milk and foam</p>
+                            <span class="price">Rs375</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Cappuccino', 375)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/mocha.jpg" alt="Mocha" class="item-image">
+                        <div class="item-info">
+                            <h4>Mocha</h4>
+                            <p>Espresso, steamed milk, and chocolate</p>
+                            <span class="price">Rs415</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Mocha', 415)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/iced.jpg" alt="Latte" class="item-image">
+                        <div class="item-info">
+                            <h4>Latte</h4>
+                            <p>Smooth espresso with velvety steamed milk</p>
+                            <span class="price">Rs395</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Latte', 395)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snacks & Pastries -->
+            <div class="menu-category">
+                <h2>🥐 Snacks & Pastries</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="./imgs2/croissanr.jpg" alt="Croissant" class="item-image">
+                        <div class="item-info">
+                            <h4>Croissant</h4>
+                            <p>Buttery and flaky French pastry</p>
+                            <span class="price">Rs330</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Croissant', 330)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/Empanda.jpg" alt="Empanada" class="item-image">
+                        <div class="item-info">
+                            <h4>Empanada</h4>
+                            <p>Crispy pocket with spicy meat filling</p>
+                            <span class="price">Rs455</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Empanada', 455)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/chocolate-brownies-3-1024x1536.jpg" alt="Chocolate Brownie" class="item-image">
+                        <div class="item-info">
+                            <h4>Chocolate Brownie</h4>
+                            <p>Dense and fudgy chocolate brownie</p>
+                            <span class="price">Rs375</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Chocolate Brownie', 375)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/OIP.jpg" alt="Churros" class="item-image">
+                        <div class="item-info">
+                            <h4>Churros</h4>
+                            <p>Fried pastry with cinnamon sugar coating</p>
+                            <span class="price">Rs415</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Churros', 415)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lunch Specials -->
+            <div class="menu-category">
+                <h2>🍽️ Lunch Specials</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="./imgs2/sandwitch.jpg" alt="Spicy Sandwich" class="item-image">
+                        <div class="item-info">
+                            <h4>Spicy Sandwich</h4>
+                            <p>Fresh bread with grilled chicken and hot sauce</p>
+                            <span class="price">Rs745</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Spicy Sandwich', 745)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=500&h=400&fit=crop" alt="Garden Salad" class="item-image">
+                        <div class="item-info">
+                            <h4>Garden Salad</h4>
+                            <p>Mixed greens with spicy cilantro dressing</p>
+                            <span class="price">Rs620</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Garden Salad', 620)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/chilli.jpg" alt="Hot Chili" class="item-image">
+                        <div class="item-info">
+                            <h4>Hot Chili</h4>
+                            <p>Homemade chili with three types of peppers</p>
+                            <span class="price">Rs790</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Hot Chili', 790)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&h=400&fit=crop" alt="Spicy Tacos" class="item-image">
+                        <div class="item-info">
+                            <h4>Spicy Tacos</h4>
+                            <p>Three soft tacos with jalapeño and habanero</p>
+                            <span class="price">Rs830</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Spicy Tacos', 830)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cold Drinks -->
+            <div class="menu-category">
+                <h2>🧊 Cold Drinks</h2>
+                <div class="menu-items">
+                    <div class="menu-item">
+                        <img src="./imgs2/latte.jpg" alt="Iced Coffee" class="item-image">
+                        <div class="item-info">
+                            <h4>Iced Coffee</h4>
+                            <p>Cold brew espresso over ice</p>
+                            <span class="price">Rs330</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Iced Coffee', 330)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/lassi.jpg" alt="Spicy Lassi" class="item-image">
+                        <div class="item-info">
+                            <h4>Mango Lassi</h4>
+                            <p>Yogurt drink with fresh ginger and chili</p>
+                            <span class="price">Rs415</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Spicy Lassi', 415)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/melon.jpg" alt="Watermelon Cooler" class="item-image">
+                        <div class="item-info">
+                            <h4>Watermelon Cooler</h4>
+                            <p>Refreshing watermelon with lime and mint</p>
+                            <span class="price">Rs455</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Watermelon Cooler', 455)">Add to Cart</button>
+                    </div>
+                    <div class="menu-item">
+                        <img src="./imgs2/icedd.jpg" alt="Iced Latte" class="item-image">
+                        <div class="item-info">
+                            <h4>Iced Latte</h4>
+                            <p>Cold milk with iced espresso</p>
+                            <span class="price">Rs395</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart('Iced Latte', 395)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-container">
+            <button class="close-checkout" onclick="closeCheckout()">&times;</button>
+            <h2>Order Checkout</h2>
+            
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <div id="orderItems"></div>
+                <div class="order-total">
+                    <strong>Total: <span id="orderTotal">Rs0.00</span></strong>
+                </div>
+            </div>
+
+            <!-- Customer Details Form -->
+            <form class="checkout-form" onsubmit="placeOrder(event)">
+                <h3>Customer Details</h3>
+                
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="customerName" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label>Email (optional)</label>
+                    <input type="email" id="customerEmail" placeholder="john@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number * (11 digits max)</label>
+                    <input type="tel" id="customerPhone" required placeholder="+92 (555) 123-4567" maxlength="11" inputmode="numeric">
+                </div>
+
+                <div class="form-group">
+                    <label>Delivery Address *</label>
+                    <textarea id="customerAddress" required placeholder="123 Main St, City, State PIN" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Special Instructions</label>
+                    <textarea id="customerNotes" placeholder="Any special requests?" rows="2"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="agreeTerms" required>
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+
+                <button type="submit" class="place-order-btn">Place Order</button>
+            </form>
+
+            <!-- Rate Our Cafe Feedback Section -->
+            <div class="feedback-section">
+                <h3>Rate Our Cafe</h3>
+                <p>Help us improve by sharing your feedback</p>
+                <button type="button" class="rate-cafe-btn" onclick="openRating()">Rate Our Cafe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h3>CEO Chat</h3>
+                <button class="close-btn" onclick="closeChatModal()">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatKeypress(event)">
+                <button onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div class="rating-modal" id="ratingModal">
+        <div class="rating-container">
+            <button class="close-rating" onclick="closeRating()">&times;</button>
+            <h2>Rate Our Cafe</h2>
+            <p>How was your experience with CAFE PICANTE?</p>
+            
+            <div class="rating-stars">
+                <span class="star" onclick="setRating(1)">⭐</span>
+                <span class="star" onclick="setRating(2)">⭐</span>
+                <span class="star" onclick="setRating(3)">⭐</span>
+                <span class="star" onclick="setRating(4)">⭐</span>
+                <span class="star" onclick="setRating(5)">⭐</span>
+            </div>
+            
+            <input type="text" id="ratingComment" placeholder="Share your feedback (optional)" maxlength="200">
+            
+            <div class="rating-buttons">
+                <button class="submit-rating-btn" onclick="submitRating()">Submit Rating</button>
+                <button class="skip-rating-btn" onclick="closeRating()">Skip</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CAFE PICANTE. All rights reserved.</p>
+            <p>📧 info@cafepicante.com | 📱 +91 (555) 123-4567</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
+    
